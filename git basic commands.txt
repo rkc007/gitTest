@@ -1,0 +1,146 @@
+FOR WINDOW USERS
+
+install github https://desktop.github.com/
+
+Then open shell provided by github
+it will be named as Git Shell
+
+you can use any directory you want 
+C:\ , D:\ E:\
+any directory
+
+use MKDIR to make new directory for you github repository
+
+cd <- to change directory
+
+now when you get into the final directory where you want to store your project local repository CLONE your project from github
+
+directory like
+
+C:\projects\new_project
+         or
+D:\myprojets\final_projects\new_project
+
+
+to clone repository locally
+
+-->> git clone https://github.com/repository007/gitTest.git 
+
+here -->> https://github.com/repository007/gitTest.git <<-- is your project link from github to clone your repository
+
+
+when you are done you will se same repository that you have on your github , now you can change everything locally.
+
+now just do -->> cd "directory name of your repository"
+example --- >>>  cd C:\projects\new_project\gitTest
+
+                                                      OUT OF BOX
+when you will initialize any repository directly (empty git repository)
+use -> git init in that directory
+
+
+
+                                                      BASICS
+
+Every git directory  has an empty repository in /.git/. The repository is a hidden directory where Git operates.
+
+-->> git status <<- command to see what the current state of  project
+                    To see how the repository status has changed
+
+Now to add any file create any fie in that directory 
+like HTML
+     PYTHON
+     CSS
+           any file.
+
+ now to add that in git the command is
+ -->>  git add "name of file" <<--
+example -->> git add index.txt
+
+
+ Now that we have added our file lets commit is (final save) as the file is in stagging area(a stopping place or assembly point en route to a destination) 
+ they are not in our repository yet
+
+To commit -->>   git commit -m "any message"
+
+if User wants to add multiple files in repository
+-->> git add '*.txt'
+-->> git add -A
+                       Don't forget to commit
+-->> git commit -m 'Add all the txt files'
+
+To check what we have changed (committed)
+-->> git log
+
+Give a name(remote_name) to you repository link
+
+-->> git remote add "name_you_want" "link_of_repository"
+example -->> git remote add rkc https://github.com/repository007/gitTest.git 
+
+
+
+Local branch of each repository (by Default only one branch (local branch) --> master)
+
+Now its time to push all data to Github repository(Online)
+ -->> git push -u rkc master 
+ ( -u tells Git to remember the parameters, so that next time we can simply run git push and Git will know what to do)
+
+
+ Let's pretend some time has passed. We've invited other people to our GitHub project who have pulled your changes, made their own commits, and pushed them.
+We can check for changes on our GitHub repository and pull down any new changes by running
+-->> git pull rkc master
+
+
+like there have been some additions and changes repository. To see what is different from our last commit by using the git diff command.
+To see most recent commit, use HEAD pointer.
+Another great use for diff is looking at changes within files that have already been staged
+-->> git diff HEAD
+
+
+To see what changes you have made
+ git diff with the --staged option to see the changes you just staged.
+ -->> git diff --staged
+
+ Just to unstage files from directory
+ -->> git reset " name of file"
+ example -->> git reset newfiles\file1.txt
+
+
+ Files can be changed back to how they were at the last commit by using the command: git checkout -- <target>. Go ahead and get rid of all the changes since the last commit for index.txt
+-->> git checkout -- index.txt
+
+
+When developers are working on a feature or bug they'll often create a copy (aka. branch) of their code they can make separate commits to. Then when they're done they can merge this branch back into their main master branch.
+-->> git branch "branch_name"
+example --> git branch new_rkc
+
+
+To switch between branches
+-->> git checkout "whichever you want to go"
+example --> git checkout new_rkc
+
+
+Command which will not only remove the actual files from disk, but will also stage the removal of the files for us.
+-->> git rm 'extension of file type'
+example --> git rm '*.txt'
+                                                Don't forget to commit changes
+git commit -m "Remove all the txt files"
+
+
+Switching between branches
+--> git checkout "Branch_name"
+example -->  git checkout master
+
+
+Now in end user just have to merge every branch 
+-->> git merge "branch name"
+example -->> git merge new_rkc
+
+
+Now delete branch after merging
+-->> git branch -d <branch name>
+example --> git branch -d new_rkc
+
+
+Finally push values in repository
+-->> git push
